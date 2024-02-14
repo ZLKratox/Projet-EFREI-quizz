@@ -4,6 +4,7 @@ Objectif : Créer un site permettant de créer des quizz :
   -> Page réactive
 - Le back end devra être fait en php
 - Le lien entre les deux sera en AJAX ( Java script )
+   -> Utiliser un POST pour envoyer et un GET pour recevoir
 - Doit faire des qcm
 
 Lien précis de la consigne : https://docs.google.com/document/d/1WrYj10dR0o4SbqEsKLxFvbrcHMjEMMwB1XoprA5WlpM/edit?usp=sharing
