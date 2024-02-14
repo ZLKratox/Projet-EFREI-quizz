@@ -16,19 +16,17 @@
     $(document).ready(function () {
         $.ajax({
             url: "/Front-end/Back-end/back.php",
-            type: "GET", // Méthode de requête
-            dataType: "json", // Type de données à attendre en réponse
+            type: "GET",
+            dataType: "json",
             success: function (data) {
-                // Traitement des données reçues
                 var html = "<ul>";
                 for (var i = 0; i < data.length; i++) {
-                    html += "<li>" + data[i].votre_colonne + "</li>"; // Modifier "votre_colonne" selon vos besoins
+                    html += "<li>" + data[i].votre_colonne + "</li>";
                 }
                 html += "</ul>";
                 $("#result").html(html);
             },
             error: function (xhr, status, error) {
-                // Gérer les erreurs
                 console.error(xhr.responseText);
             }
         });
