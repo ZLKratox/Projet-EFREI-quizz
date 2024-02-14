@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
-$username = "votre_nom_utilisateur";
-$password = "votre_mot_de_passe";
-$dbname = "votre_base_de_données";
+$username = "root";
+$password = "efrei";
+$dbname = "quizz-efrei";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -12,7 +12,7 @@ if ($conn->connect_error) {
 }
 
 // Exemple de requête
-$sql = "SELECT * FROM votre_table";
+$sql = "SELECT * FROM users";
 $result = $conn->query($sql);
 
 // Renvoyer les données au format JSON
