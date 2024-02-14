@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <div id="result"></div>
+    <div>
+        <div class="grid-container">
+            <div class="grid-item" id="titre">
+                <h2>Crée ton quiz !</h2>
+            </div>
+            <div class="grid-item" id="q1">
+                <button id="ajouter-question">Ajouter une question</button>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        var boutonAjouter = document.getElementById('ajouter-question');
+                        var containerQuestions = document.getElementById('questions-container');
+                        var indexQuestion = 1;
+
+                        boutonAjouter.addEventListener('click', function () {
+                            var nombreReponses = prompt("Entrez le nombre de réponses pour cette question :");
+                            if (nombreReponses && !isNaN(nombreReponses) && parseInt(nombreReponses) > 0) {
+                                var nouvelleQuestion = document.createElement('div');
+                                nouvelleQuestion.innerHTML = `
+                        <h3>Question ${indexQuestion}</h3>
+                        <label for="question-${indexQuestion}">Question :</label>
+                        <input type="text" id="question-${indexQuestion}" name="question-${indexQuestion}" required>
+                        <div id="reponses-${indexQuestion}">
+                            <p>Réponses :</p>
+                        </div>
+                    `;
+                                for (var i = 1; i <= parseInt(nombreReponses); i++) {
+                                    nouvelleQuestion.innerHTML += `
+                            <input type="radio" id="reponse-${indexQuestion}-${i}" name="reponse-${indexQuestion}" required>
+                            <label for="reponse-${indexQuestion}-${i}">Réponse ${i} :</label>
+                            <input type="text" id="reponse-${indexQuestion}-${i}" name="reponse-${indexQuestion}-${i}" required>
+                            <br>
+                        `;
+                                }
+                                nouvelleQuestion.innerHTML += `<hr>`;
+                                containerQuestions.appendChild(nouvelleQuestion);
+                                indexQuestion++;
+                            } else {
+                                alert("Veuillez entrer un nombre valide de réponses.");
+                            }
+                        });
+                    });
+                </script>
+            </div>
+            <div class="grid-item" id="q2">
+                <label for="q2">Deuxième question :</label><br>
+                <input type="text" id="q2"
+                    placeholder="Quel est le plus lourd entre 1kg de plumes et 1kg de plomb ?"><br>
+                <div id="reponses-q2">
+                    <label for="reponse-q2-1">Réponse 1 :</label>
+                    <input type="text" id="reponse-q2-1" name="reponse-q2" required>
+                    <br>
+                    <label for="reponse-q2-2">Réponse 2 :</label>
+                    <input type="text" id="reponse-q2-2" name="reponse-q2" required>
+                    <br>
+                    <label for="reponse-q2-3">Réponse 3 :</label>
+                    <input type="text" id="reponse-q2-3" name="reponse-q2" required>
+                    <br>
+                    <label for="reponse-q2-4">Réponse 4 :</label>
+                    <input type="text" id="reponse-q2-4" name="reponse-q2" required>
+                    <br>
+                </div>
+            </div>
+            <div class="grid-item" id="q3">
+                <label for="q3">Troisième question :</label><br>
+                <input type="text" id="q3" placeholder="Combien font 0 + 0 ?"><br>
+                <div id="reponses-q3">
+                    <label for="reponse-q3-1">Réponse 1 :</label>
+                    <input type="text" id="reponse-q3-1" name="reponse-q3" required>
+                    <br>
+                    <label for="reponse-q3-2">Réponse 2 :</label>
+                    <input type="text" id="reponse-q3-2" name="reponse-q3" required>
+                    <br>
+                    <label for="reponse-q3-3">Réponse 3 :</label>
+                    <input type="text" id="reponse-q3-3" name="reponse-q3" required>
+                    <br>
+                    <label for="reponse-q3-4">Réponse 4 :</label>
+                    <input type="text" id="reponse-q3-4" name="reponse-q3" required>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: "/Front-end/Back-end/back.php",
+                type: "GET",
+                dataType: "json",
+                success: function (data) {
+                    var html = "<ul>";
+                    for (var i = 0; i < data.length; i++) {
+                        html += "<li>" + data[i].users + "</li>";
+                    }
+                    html += "</ul>";
+                    $("#result").html(html);
+                },
+                error: function (xhr, status, error) {
+                    console.error(xhr.responseText);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
