@@ -10,8 +10,6 @@
 
 </head>
 
-<div id="result"></div>
-
 <script>
     $(document).ready(function () {
         $.ajax({
@@ -35,8 +33,10 @@
 
 
 <body>
+    <div id="result"></div>
+<div>
     <div class="grid-container">
-        <div class="grid-item">
+        <div class="grid-item" id="titre">
             <h2>Crée ton quiz !</h2>
         </div>
         <div class="grid-item" id="q1">
@@ -67,6 +67,7 @@
             <input type="text" placeholder="réponse fausse">
         </div>
     </div>
+</div>
 </body>
 
 </html>
