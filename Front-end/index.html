@@ -35,10 +35,52 @@
 
 
 <body>
+
     <div class="grid-container">
         <div class="grid-item">
             <h2>Crée ton quiz !</h2>
         </div>
+        <div id="questions-container">
+            <!-- Les questions seront ajoutées ici -->
+        </div>
+
+        <button id="ajouter-question">Ajouter une question</button>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var boutonAjouter = document.getElementById('ajouter-question');
+                var containerQuestions = document.getElementById('questions-container');
+                var indexQuestion = 1;
+
+                boutonAjouter.addEventListener('click', function () {
+                    var nombreReponses = prompt("Entrez le nombre de réponses pour cette question :");
+                    if (nombreReponses && !isNaN(nombreReponses) && parseInt(nombreReponses) > 0) {
+                        var nouvelleQuestion = document.createElement('div');
+                        nouvelleQuestion.innerHTML = `
+                <h3>Question ${indexQuestion}</h3>
+                <label for="question-${indexQuestion}">Question :</label>
+                <input type="text" id="question-${indexQuestion}" name="question-${indexQuestion}" required>
+                <br>
+                <p>Réponses :</p>
+            `;
+                        for (var i = 1; i <= parseInt(nombreReponses); i++) {
+                            nouvelleQuestion.innerHTML += `
+                    <input type="radio" id="reponse-${indexQuestion}-${i}" name="reponse-${indexQuestion}" required>
+                    <label for="reponse-${indexQuestion}-${i}">Réponse ${i} :</label>
+                    <input type="text" id="reponse-${indexQuestion}-${i}" name="reponse-${indexQuestion}-${i}" required>
+                    <br>
+                `;
+                        }
+                        nouvelleQuestion.innerHTML += `<hr>`;
+                        containerQuestions.appendChild(nouvelleQuestion);
+                        indexQuestion++;
+                    } else {
+                        alert("Veuillez entrer un nombre valide de réponses.");
+                    }
+                });
+            });
+        </script>
+        <!-- 
         <div class="grid-item" id="q1">
             <label>Premiere question :</label><br>
             <input for="q1" type="text" placeholder="Quelle est la couleur du cheval blanc d'Henry IV ?"><br>
@@ -66,7 +108,7 @@
             <input type="text" placeholder="réponse fausse"><br>
             <input type="text" placeholder="réponse fausse">
         </div>
-    </div>
+    </div> -->
 </body>
 
 </html>
