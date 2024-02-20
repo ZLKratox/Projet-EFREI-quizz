@@ -12,7 +12,7 @@
 <body>
     <script>
         $.ajax({
-            url: 'http://example.com/api/data',
+            url: 'https://zlkratox.github.io/Projet-EFREI-quizz/',
             type: 'GET',
             success: function (response) {
                 console.log('Réponse du serveur : ' + response);
@@ -23,56 +23,58 @@
         });
     </script>
 
-<button id="ajouter-question">Ajouter une question</button>
+    <button id="ajouter-question">Ajouter une question</button>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var boutonAjouter = document.getElementById('ajouter-question');
-        var containerQuestions = document.getElementById('questions-container');
-        var indexQuestion = 1;
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var boutonAjouter = document.getElementById('ajouter-question');
+            var containerQuestions = document.getElementById('questions-container');
+            var indexQuestion = 1;
 
-        boutonAjouter.addEventListener('click', function () {
-            var nombreReponses = prompt("Entrez le nombre de réponses pour cette question :");
-            if (nombreReponses && !isNaN(nombreReponses) && parseInt(nombreReponses) > 0) {
-                var nouvelleQuestion = document.createElement('div');
-                nouvelleQuestion.innerHTML = `
+            boutonAjouter.addEventListener('click', function () {
+                var nombreReponses = prompt("Entrez le nombre de réponses pour cette question :");
+                if (nombreReponses && !isNaN(nombreReponses) && parseInt(nombreReponses) > 0) {
+                    var nouvelleQuestion = document.createElement('div');
+                    nouvelleQuestion.innerHTML = `
         <h3>Question ${indexQuestion}</h3>
         <label for="question-${indexQuestion}">Question :</label>
         <input type="text" id="question-${indexQuestion}" name="question-${indexQuestion}" required>
         <br>
         <p>Réponses :</p>
     `;
-                for (var i = 1; i <= parseInt(nombreReponses); i++) {
-                    nouvelleQuestion.innerHTML += `
+                    for (var i = 1; i <= parseInt(nombreReponses); i++) {
+                        nouvelleQuestion.innerHTML += `
             <input type="radio" id="reponse-${indexQuestion}-${i}" name="reponse-${indexQuestion}" required>
             <label for="reponse-${indexQuestion}-${i}">Réponse ${i} :</label>
             <input type="text" id="reponse-${indexQuestion}-${i}" name="reponse-${indexQuestion}-${i}" required>
             <br>
         `;
+                    }
+                    nouvelleQuestion.innerHTML += `<hr>`;
+                    containerQuestions.appendChild(nouvelleQuestion);
+                    indexQuestion++;
+                } else {
+                    alert("Veuillez entrer un nombre valide de réponses.");
                 }
-                nouvelleQuestion.innerHTML += `<hr>`;
-                containerQuestions.appendChild(nouvelleQuestion);
-                indexQuestion++;
-            } else {
-                alert("Veuillez entrer un nombre valide de réponses.");
-            }
+            });
         });
-    });
-</script>
+    </script>
 
     <div class="grid-container">
         <div class="grid-item" id="titre">
             <h2>Crée ton quiz !</h2>
         </div>
         <div class="grid-item" id="question">
+
             <label>Premiere question :</label><br>
-            <input for="q1" id="reponses" type="text" placeholder="Quelle est la couleur du cheval blanc d'Henry IV ?"><br>
+            <input for="q1" id="reponses" type="text"
+                placeholder="Quelle est la couleur du cheval blanc d'Henry IV ?"><br>
             <label>Réponses :</label><br>
             <div id="reponses">
-            <input for="q1r1" type="text" placeholder="bonne réponse"><br>
-            <input for="q1r2" type="text" placeholder="réponse fausse"><br>
-            <input for="q1r3" type="text" placeholder="réponse fausse"><br>
-            <input for="q1r4" type="text" placeholder="réponse fausse">
+                <input for="q1r1" type="text" placeholder="bonne réponse"><br>
+                <input for="q1r2" type="text" placeholder="réponse fausse"><br>
+                <input for="q1r3" type="text" placeholder="réponse fausse"><br>
+                <input for="q1r4" type="text" placeholder="réponse fausse">
             </div>
         </div>
         <div class="grid-item" id="question">
