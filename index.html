@@ -10,6 +10,7 @@
 </head>
 
 <body>
+
     <script>
         $.ajax({
             url: 'https://zlkratox.github.io/Projet-EFREI-quizz/',
@@ -23,79 +24,64 @@
         });
     </script>
 
-    <button id="ajouter-question">Ajouter une question</button>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var boutonAjouter = document.getElementById('ajouter-question');
-            var containerQuestions = document.getElementById('questions-container');
-            var indexQuestion = 1;
-
-            boutonAjouter.addEventListener('click', function () {
-                var nombreReponses = prompt("Entrez le nombre de réponses pour cette question :");
-                if (nombreReponses && !isNaN(nombreReponses) && parseInt(nombreReponses) > 0) {
-                    var nouvelleQuestion = document.createElement('div');
-                    nouvelleQuestion.innerHTML = `
-        <h3>Question ${indexQuestion}</h3>
-        <label for="question-${indexQuestion}">Question :</label>
-        <input type="text" id="question-${indexQuestion}" name="question-${indexQuestion}" required>
-        <br>
-        <p>Réponses :</p>
-    `;
-                    for (var i = 1; i <= parseInt(nombreReponses); i++) {
-                        nouvelleQuestion.innerHTML += `
-            <input type="radio" id="reponse-${indexQuestion}-${i}" name="reponse-${indexQuestion}" required>
-            <label for="reponse-${indexQuestion}-${i}">Réponse ${i} :</label>
-            <input type="text" id="reponse-${indexQuestion}-${i}" name="reponse-${indexQuestion}-${i}" required>
-            <br>
-        `;
-                    }
-                    nouvelleQuestion.innerHTML += `<hr>`;
-                    containerQuestions.appendChild(nouvelleQuestion);
-                    indexQuestion++;
-                } else {
-                    alert("Veuillez entrer un nombre valide de réponses.");
-                }
-            });
-        });
-    </script>
-
     <div class="grid-container">
         <div class="grid-item" id="titre">
             <h2>Crée ton quiz !</h2>
         </div>
-        <div class="grid-item" id="question">
-
-            <label>Premiere question :</label><br>
-            <input for="q1" id="reponses" type="text"
-                placeholder="Quelle est la couleur du cheval blanc d'Henry IV ?"><br>
-            <label>Réponses :</label><br>
-            <div id="reponses">
-                <input for="q1r1" type="text" placeholder="bonne réponse"><br>
-                <input for="q1r2" type="text" placeholder="réponse fausse"><br>
-                <input for="q1r3" type="text" placeholder="réponse fausse"><br>
-                <input for="q1r4" type="text" placeholder="réponse fausse">
+        <div class="grid-item" id="questions-container">
+            <div class="wrapper">
+                <a class="button" href="#" id="ajouter-question">Ajouter une question</a>
+                <svg style="visibility: hidden; position: absolute;" width="0" height="0"
+                    xmlns="http://www.w3.org/2000/svg" version="1.1">
+                    <defs>
+                        <filter id="goo">
+                            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
+                                result="goo" />
+                            <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+                        </filter>
+                    </defs>
+                </svg>
             </div>
-        </div>
-        <div class="grid-item" id="question">
-            <label for="q2">Deuxième question :</label><br>
-            <input type="text" placeholder="Quel est le plus lourd entre 1kg de plumes et 1kg de plomb ?"><br>
-            <label for="q3">réponses :</label><br>
-            <input type="text" placeholder="bonne réponse"><br>
-            <input type="text" placeholder="réponse fausse"><br>
-            <input type="text" placeholder="réponse fausse"><br>
-            <input type="text" placeholder="réponse fausse">
-        </div>
-        <div class="grid-item" id="question">
-            <label for="q3">Troisème question :</label><br>
-            <input type="text" placeholder="Combien font 0 + 0 ?"><br>
-            <label for="q3">réponses :</label><br>
-            <input type="text" placeholder="bonne réponse"><br>
-            <input type="text" placeholder="réponse fausse"><br>
-            <input type="text" placeholder="réponse fausse"><br>
-            <input type="text" placeholder="réponse fausse">
-        </div>
-    </div>
+
+            <div class="questions-container" id="questions-container">
+            </div>
+
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    var boutonAjouter = document.getElementById('ajouter-question');
+                    var containerQuestions = document.getElementById('questions-container');
+                    var indexQuestion = 1;
+
+                    boutonAjouter.addEventListener('click', function () {
+                        var nombreReponses = prompt("Entrez le nombre de réponses pour cette question :");
+                        if (nombreReponses && !isNaN(nombreReponses) && parseInt(nombreReponses) > 0) {
+                            var nouvelleQuestion = document.createElement('div');
+                            nouvelleQuestion.innerHTML = `
+                        <h3>Question ${indexQuestion}</h3>
+                        <label for="question-${indexQuestion}">Question :</label>
+                        <input type="text" id="question-${indexQuestion}" name="question-${indexQuestion}" required>
+                        <br>
+                        <p>Réponses :</p>
+                    `;
+                            for (var i = 1; i <= parseInt(nombreReponses); i++) {
+                                nouvelleQuestion.innerHTML += `
+                            <input type="radio" id="reponse-${indexQuestion}-${i}" name="reponse-${indexQuestion}" required>
+                            <label for="reponse-${indexQuestion}-${i}">Réponse ${i} :</label>
+                            <input type="text" id="reponse-${indexQuestion}-${i}" name="reponse-${indexQuestion}-${i}" required>
+                            <br>
+                        `;
+                            }
+                            nouvelleQuestion.innerHTML += `<hr>`;
+                            containerQuestions.appendChild(nouvelleQuestion);
+                            indexQuestion++;
+                        } else {
+                            alert("Veuillez entrer un nombre valide de réponses.");
+                        }
+                    });
+                });
+            </script>
 </body>
 
 </html>
