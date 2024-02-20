@@ -10,6 +10,19 @@
 </head>
 
 <body>
+    <script>
+        $.ajax({
+            url: 'http://example.com/api/data',
+            type: 'GET',
+            success: function (response) {
+                console.log('Réponse du serveur : ' + response);
+            },
+            error: function (xhr, status, error) {
+                console.error('La requête a échoué avec un statut ' + xhr.status);
+            }
+        });
+    </script>
+
     <div class="grid-container">
         <div class="grid-item" id="titre">
             <h2>Crée ton quiz !</h2>
