@@ -10,26 +10,6 @@
 </head>
 
 <body>
-    <script>
-        $(document).ready(function () {
-            $.ajax({
-                url: "/Front-end/Back-end/back.php",
-                type: "GET",
-                dataType: "json",
-                success: function (data) {
-                    var html = "<ul>";
-                    for (var i = 0; i < data.length; i++) {
-                        html += "<li>" + data[i].users + "</li>";
-                    }
-                    html += "</ul>";
-                    $("#result").html(html);
-                },
-                error: function (xhr, status, error) {
-                    console.error(xhr.responseText);
-                }
-            });
-        });
-    </script>
     <div class="grid-container">
         <div class="grid-item" id="titre">
             <h2>Crée ton quiz !</h2>
