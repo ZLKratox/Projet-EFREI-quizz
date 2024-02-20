@@ -3,6 +3,7 @@ Objectif : Créer un site permettant de créer des quizz :
   -> Attention la page doit fonctionner sur téléphone et sur pc donc grid / flex obligatoire
   -> Page réactive
 - Le back end devra être fait en php
+    -> BDD FAITES
 - Le lien entre les deux sera en AJAX ( Java script )
 - Doit faire des qcm
 
