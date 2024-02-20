@@ -27,3 +27,7 @@ body {
     padding: 20px;
     margin: 5px;
 }
+
+#reponses {
+    border-radius: 7px;
+}
