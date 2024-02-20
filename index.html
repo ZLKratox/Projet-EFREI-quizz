@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <script>
+        $.ajax({
+            url: 'https://zlkratox.github.io/Projet-EFREI-quizz/',
+            type: 'GET',
+            success: function (response) {
+                console.log('Réponse du serveur : c\'est good');
+            },
+            error: function (xhr, status, error) {
+                console.error('La requête a échoué avec un statut ' + xhr.status);
+            }
+        });
+    </script>
+
+    <div class="grid-container">
+        <div class="grid-item" id="titre">
+            <h2>Crée ton quiz !</h2>
+        </div>
+        <div class="grid-item" id="questions-container">
+            <button id="ajouter-question">Ajouter une question</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var boutonAjouter = document.getElementById('ajouter-question');
+            var containerQuestions = document.getElementById('questions-container');
+            var indexQuestion = 1;
+
+            boutonAjouter.addEventListener('click', function () {
+                var nombreReponses = prompt("Entrez le nombre de réponses pour cette question :");
+                if (nombreReponses && !isNaN(nombreReponses) && parseInt(nombreReponses) > 0) {
+                    var nouvelleQuestion = document.createElement('div');
+                    nouvelleQuestion.innerHTML = `
+                    <h3>Question ${indexQuestion}</h3>
+                    <label for="question-${indexQuestion}">Question :</label>
+                    <input type="text" id="question-${indexQuestion}" name="question-${indexQuestion}" required>
+                    <br>
+                    <p>Réponses :</p>
+                `;
+                    for (var i = 1; i <= parseInt(nombreReponses); i++) {
+                        nouvelleQuestion.innerHTML += `
+                        <input type="radio" id="reponse-${indexQuestion}-${i}" name="reponse-${indexQuestion}" required>
+                        <label for="reponse-${indexQuestion}-${i}">Réponse ${i} :</label>
+                        <input type="text" id="reponse-${indexQuestion}-${i}" name="reponse-${indexQuestion}-${i}" required>
+                        <br>
+                    `;
+                    }
+                    nouvelleQuestion.innerHTML += `<hr>`;
+                    containerQuestions.appendChild(nouvelleQuestion);
+                    indexQuestion++;
+                } else {
+                    alert("Veuillez entrer un nombre valide de réponses.");
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
