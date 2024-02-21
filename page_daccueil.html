@@ -3,6 +3,7 @@
 
 <head>
     <title>Page d'accueil</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         body {
             background-image: url('lundifficile.jpg');
@@ -31,7 +32,8 @@
             padding: 10px;
             border-radius: 5px;
             font-size: 18px;
-            width: 300px;
+            width: 80%;
+            max-width: 300px;
             transition: transform 0.3s;
         }
 
@@ -44,6 +46,13 @@
             bottom: 0;
             left: 10px;
             font-size: 12px;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .input-field {
+                width: 75%;
+                max-width: none;
+            }
         }
     </style>
 </head>
