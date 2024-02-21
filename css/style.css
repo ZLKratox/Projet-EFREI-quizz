@@ -40,6 +40,11 @@ body {
 
 #submit{
     cursor: pointer;
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: rgba(240, 248, 255, 0);
+    font-weight: bold;
 }
 
 .wrapper {
