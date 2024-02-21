@@ -1,15 +1,16 @@
 .grid-container {
     display: grid;
     grid-template-columns: 65%;
-    grid-template-rows: 110px 1fr 90px;
+    grid-template-rows: 110px 0.5fr 90px;
     border: 2px solid black;
     justify-content: center;
     font-family: Montserrat, Roboto, Helvetica, Arial, sans-serif;
+    height: 100vh;
 }
 
 .grid-item {
-    background-color: aliceblue;
-    border: 4px solid rgba(23, 34, 197, 0.836);
+    background-color: rgb(255, 255, 255);
+    border: 4px solid rgba(195, 0, 255, 0.836);
     border-radius: 20px;
     margin: 20px;
     text-align: center;
@@ -21,18 +22,22 @@ body {
 }
 
 #titre {
-    background-color: aliceblue;
     margin: 20px;
 }
 
 #titre-rgl{
     width: 100%;
     height: 100%;
+    font-size: 1.45rem;
 }
 
 #poster {
-    background-color: aliceblue;
     margin: 20px;
+    transition: transform 0.3s;
+}
+
+#poster:hover {
+    transform: scale(1.1);
 }
 
 #submit{
@@ -42,6 +47,7 @@ body {
     border: none;
     background-color: rgba(240, 248, 255, 0);
     font-weight: bold;
+    font-size: 1rem;
 }
 
 .wrapper {
@@ -50,17 +56,11 @@ body {
 }
 
 .button {
-    display: inline-block;
     text-align: center;
-    background: #eee;
-    color: #1a1e24;
-    font-weight: bold;
-    padding: 1.18em 1.32em 1.03em;
-    line-height: 1;
+    color: #000000;
+    padding: 10px;
     border-radius: 5px;
-    min-width: 8.23em;
     text-decoration: none;
-    font-size: 1.25rem;
 }
 
 /* Styles pour les questions */
@@ -107,4 +107,6 @@ hr {
 #ajouter-question {
     width: 70%;
     height: 5px;
+    background-color: rgba(46, 110, 167, 0);
+    border: 1px solid #000000;
 }
