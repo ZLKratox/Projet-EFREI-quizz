@@ -4,18 +4,19 @@
     grid-template-rows: 120px repeat(3, 1fr);
     border: 2px solid black;
     justify-content: center;
+    font-family: Montserrat, Roboto, Helvetica, Arial, sans-serif;
 }
 
 .grid-item {
     background-color: aliceblue;
-    border: 6px solid rgba(48, 56, 167, 0.7);
-    border-radius: 40px;
+    border: 4px solid rgba(23, 34, 197, 0.836);
+    border-radius: 25px;
     margin: 20px;
     text-align: center;
 }
 
 body {
-    background-color: rgba(76, 174, 255, 0.6);
+    background-color: rgba(47, 151, 236, 0.815);
 }
 
 #titre {
@@ -32,60 +33,27 @@ body {
     border-radius: 7px;
 }
 
-:root {
-    --bg: #1a1e24;
-    --color: #eee;
-    --font: Montserrat, Roboto, Helvetica, Arial, sans-serif;
+#poster {
+    background-color: aliceblue;
+    margin: 20px;
 }
 
 .wrapper {
     padding: 1.5rem 0;
-    filter: url('#goo');
 }
 
 .button {
     display: inline-block;
     text-align: center;
-    background: var(--color);
-    color: var(--bg);
+    background: #eee;
+    color: #1a1e24;
     font-weight: bold;
     padding: 1.18em 1.32em 1.03em;
     line-height: 1;
-    border-radius: 1em;
-    position: relative;
+    border-radius: 5px;
     min-width: 8.23em;
     text-decoration: none;
-    font-family: var(--font);
     font-size: 1.25rem;
-}
-
-.button:before,
-.button:after {
-    width: 4.4em;
-    height: 2.95em;
-    position: absolute;
-    content: "";
-    display: inline-block;
-    background: var(--color);
-    border-radius: 50%;
-    transition: transform 1s ease;
-    transform: scale(0);
-    z-index: -1;
-}
-
-.button:before {
-    top: -25%;
-    left: 20%;
-}
-
-.button:after {
-    bottom: -25%;
-    right: 20%;
-}
-
-.button:hover:before,
-.button:hover:after {
-    transform: none;
 }
 
 /* Styles pour les questions */
@@ -118,8 +86,8 @@ input[type="radio"] {
 
 /* Ligne de séparation */
 hr {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
     border: 0;
     border-top: 1px solid #ccc;
 }

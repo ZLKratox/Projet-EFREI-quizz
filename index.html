@@ -34,22 +34,10 @@
 
             <div class="wrapper">
                 <a class="button" href="#" id="ajouter-question">Ajouter une question</a>
-                <svg style="visibility: hidden; position: absolute;" width="0" height="0"
-                    xmlns="http://www.w3.org/2000/svg" version="1.1">
-                    <defs>
-                        <filter id="goo">
-                            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
-                            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
-                                result="goo" />
-                            <feComposite in="SourceGraphic" in2="goo" operator="atop" />
-                        </filter>
-                    </defs>
-                </svg>
             </div>
-
+            
             <div class="questions-container" id="questions-container">
             </div>
-
 
             <script>
                 document.addEventListener('DOMContentLoaded', function () {
@@ -58,7 +46,7 @@
                     var indexQuestion = 1;
 
                     boutonAjouter.addEventListener('click', function () {
-                        var nombreReponses = prompt("Entrez le nombre de réponses pour cette question :");
+                        var nombreReponses = prompt("Nombre de réponses pour cette question :");
                         if (nombreReponses && !isNaN(nombreReponses) && parseInt(nombreReponses) > 0) {
                             var nouvelleQuestion = document.createElement('div');
                             nouvelleQuestion.innerHTML = `
@@ -85,6 +73,10 @@
                     });
                 });
             </script>
+        </div>
+
+        <div class="grid-item" id="poster">
+            <input type="submit" id="submit" value="Envoyer">
         </div>
     </div>
 </body>
