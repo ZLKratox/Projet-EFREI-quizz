@@ -67,7 +67,7 @@
                         <input type="text" id="question-${indexQuestion}" name="question-${indexQuestion}" required>
                         <br>
                         <p>Réponses :</p>
-                    `;
+                        `;
                             for (var i = 1; i <= parseInt(nombreReponses); i++) {
                                 nouvelleQuestion.innerHTML += `
                             <input type="radio" id="reponse-${indexQuestion}-${i}" name="reponse-${indexQuestion}" required>
@@ -80,7 +80,7 @@
                             containerQuestions.appendChild(nouvelleQuestion);
                             indexQuestion++;
                         } else {
-                            alert("Veuillez entrer un nombre valide de réponses.");
+                            alert("Veuillez entrer un nombre valide de réponses");
                         }
                     });
                 });
