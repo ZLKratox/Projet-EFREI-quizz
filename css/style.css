@@ -16,7 +16,8 @@
 }
 
 body {
-    background-color: rgba(47, 151, 236, 0.815);
+    background-image: url('/img.jpg');
+    background-attachment: fixed;
 }
 
 #titre {
