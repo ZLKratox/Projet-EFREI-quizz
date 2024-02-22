@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Création Quiz</title>
+    <link rel="stylesheet" href="style2.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="grid-item" id="titre">
+            <h2>Crée ton quiz !</h2>
+        </div>
+        <div class="grid-item" id="questions-container">
+            <button id="ajouter-question">Ajouter une question</button>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            let quizId = new URLSearchParams(window.location.search).get('quiz_id');
+            if (!quizId) {
+                alert("ID du quiz manquant dans l'URL.");
+                return;
+            }
+
+            $('#ajouter-question').click(function() {
+                let nombreReponses = prompt("Entrez le nombre de réponses pour cette question :");
+                if (nombreReponses && !isNaN(nombreReponses) && parseInt(nombreReponses) > 0) {
+                    let indexQuestion = $('#questions-container').children().length;
+                    let nouvelleQuestion = $(`<div>
+                        <h3>Question ${indexQuestion + 1}</h3>
+                        <label for="question-${indexQuestion}">Question :</label>
+                        <input type="text" id="question-${indexQuestion}" name="question-${indexQuestion}" required>
+                        <br>
+                        <p>Réponses :</p>
+                    `);
+
+                    for (let i = 1; i <= parseInt(nombreReponses); i++) {
+                        nouvelleQuestion.append(`
+                            <input type="radio" name="reponse-${indexQuestion}" required>
+                            <label for="reponse-${indexQuestion}-${i}">Réponse ${i} :</label>
+                            <input type="text" id="reponse-${indexQuestion}-${i}" name="reponse-${indexQuestion}-${i}" required>
+                            <br>
+                        `);
+                    }
+
+                    nouvelleQuestion.append(`
+                        <button type="button" onclick="submitQuestion(${indexQuestion}, ${nombreReponses}, ${quizId})">Soumettre cette question</button>
+                        <hr>
+                    `);
+
+                    $('#questions-container').append(nouvelleQuestion);
+                } else {
+                    alert("Veuillez entrer un nombre valide de réponses.");
+                }
+            });
+        });
+
+        function submitQuestion(questionNumber, numberOfAnswers, quizId) {
+            let questionText = $(`#question-${questionNumber}`).val();
+            let answers = [];
+            let correctAnswerIndex = $(`input[name='reponse-${questionNumber}']:checked`).index(`input[name='reponse-${questionNumber}']`);
+
+            for (let i = 0; i < numberOfAnswers; i++) {
+                answers.push($(`#reponse-${questionNumber}-${i + 1}`).val());
+            }
+
+            $.ajax({
+                url: 'http://127.0.0.1/question.php',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    quiz_id: quizId,
+                    question_text: questionText,
+                    answers: answers,
+                    correct_answer_index: correctAnswerIndex
+                }),
+                success: function(response) {
+                    alert('Question soumise avec succès');
+                },
+                error: function() {
+                    alert('Erreur lors de la soumission de la question');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
