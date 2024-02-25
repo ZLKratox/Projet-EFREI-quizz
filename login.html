@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Page d'accueil</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Bienvenue sur notre questionnaire !</h1>
+        <p>Entrez votre nom pour continuer:</p>
+        <!-- Action mise à jour pour pointer vers login.php -->
+        <form action="login.php" method="post">
+            <!-- Assurez-vous que le champ de saisie a le nom 'username' -->
+            <input type="text" class="input-field" id="username" name="username" placeholder="Votre nom" required>
+            <input type="submit" value="Connexion">
+        </form>
+    </div>
+
+    <div class="footer">
+        Fait par Victor
+    </div>
+</body>
+
+</html>

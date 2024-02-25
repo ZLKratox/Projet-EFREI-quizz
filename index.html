@@ -3,89 +3,26 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>quiz</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Inscription</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+    </style>
 </head>
 
 <body>
+    <div class="container">
+        <h1>Inscription</h1>
+        <p>Entrez votre nom pour vous inscrire :</p>
+        <form id="usernameForm" action="register.php" method="post">
+            <input type="text" class="input-field" id="username" name="username" placeholder="Votre nom" required>
+            <input type="submit" value="S'inscrire">
+        </form>
+        <p>Déjà inscrit ? <a href="login.html">Connectez-vous ici</a></p>
+    </div>
 
-    <script>
-        $.ajax({
-            url: 'https://zlkratox.github.io/Projet-EFREI-quizz/',
-            type: 'GET',
-            success: function (response) {
-                console.log('Réponse du serveur : c\'est good');
-            },
-            error: function (xhr, status, error) {
-                console.error('La requête a échoué avec un statut ' + xhr.status);
-            }
-        });
-    </script>
-
-    <div class="grid-container">
-
-        <div class="grid-item" id="titre">
-            <h2>Crées ton quiz !</h2>
-        </div>
-
-        <div class="grid-item" id="questions-container">
-
-            <div class="wrapper">
-                <a class="button" href="#" id="ajouter-question">Ajouter une question</a>
-                <svg style="visibility: hidden; position: absolute;" width="0" height="0"
-                    xmlns="http://www.w3.org/2000/svg" version="1.1">
-                    <defs>
-                        <filter id="goo">
-                            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
-                            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
-                                result="goo" />
-                            <feComposite in="SourceGraphic" in2="goo" operator="atop" />
-                        </filter>
-                    </defs>
-                </svg>
-            </div>
-
-            <div class="questions-container" id="questions-container">
-            </div>
-
-
-            <script>
-                document.addEventListener('DOMContentLoaded', function () {
-                    var boutonAjouter = document.getElementById('ajouter-question');
-                    var containerQuestions = document.getElementById('questions-container');
-                    var indexQuestion = 1;
-
-                    boutonAjouter.addEventListener('click', function () {
-                        var nombreReponses = prompt("Entrez le nombre de réponses pour cette question :");
-                        if (nombreReponses && !isNaN(nombreReponses) && parseInt(nombreReponses) > 0) {
-                            var nouvelleQuestion = document.createElement('div');
-                            nouvelleQuestion.innerHTML = `
-                        <h3>Question ${indexQuestion}</h3>
-                        <label for="question-${indexQuestion}">Question :</label>
-                        <input type="text" id="question-${indexQuestion}" name="question-${indexQuestion}" required>
-                        <br>
-                        <p>Réponses :</p>
-                        `;
-                            for (var i = 1; i <= parseInt(nombreReponses); i++) {
-                                nouvelleQuestion.innerHTML += `
-                            <input type="radio" id="reponse-${indexQuestion}-${i}" name="reponse-${indexQuestion}" required>
-                            <label for="reponse-${indexQuestion}-${i}">Réponse ${i} :</label>
-                            <input type="text" id="reponse-${indexQuestion}-${i}" name="reponse-${indexQuestion}-${i}" required>
-                            <br>
-                        `;
-                            }
-                            nouvelleQuestion.innerHTML += `<hr>`;
-                            containerQuestions.appendChild(nouvelleQuestion);
-                            indexQuestion++;
-                        } else {
-                            alert("Veuillez entrer un nombre valide de réponses");
-                        }
-                    });
-                });
-            </script>
-        </div>
+    <div class="footer">
+        Fait par Victor
     </div>
 </body>
 
