@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Créer un Quiz</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+</head>
+
+<body>
+    <main class="container">
+        <section>
+            <h2>Créer un nouveau quiz</h2>
+            <div id="formContainer">
+                <input type="text" id="quiz_title" placeholder="Titre du quiz" required>
+                <div id="questionsContainer">
+                </div>
+                <button type="button" id="addQuestion">Ajouter une question</button>
+                <button type="button" id="submitQuiz">Enregistrer le quiz</button>
+            </div>
+            <div id="message"></div>
+        </section>
+    </main>
+    <script src="js/creer-quiz.js"></script>
+</body>
+
+</html>

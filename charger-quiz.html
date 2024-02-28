@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <title>Quiz Application</title>
+</head>
+
+<body>
+    <main class="container">
+        <div class="grid">
+            <section>
+                <h2>Charger un Quiz</h2>
+                <form id="loadQuizForm">
+                    <input type="text" id="quizTitle" name="quiz_title" placeholder="Titre du Quiz" required>
+                    <button type="submit">Charger Quiz</button>
+                </form>
+                <div id="quizContainer"></div>
+            </section>
+        </div>
+    </main>
+    <script src="js/charger-quiz.js"></script>
+</body>
+
+</html>

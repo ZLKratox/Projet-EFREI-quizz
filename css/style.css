@@ -1,0 +1,150 @@
+/* Ajouter après les styles précédents */
+.question-block {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.add-choice,
+.remove-question {
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+/* Login css */
+
+body {
+    background-image: url('lundifficile.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.input-field {
+    border: 2px solid white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 18px;
+    width: 80%;
+    max-width: 300px;
+    transition: transform 0.3s;
+}
+
+.input-field:hover {
+    transform: scale(1.1);
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 10px;
+    font-size: 12px;
+}
+
+@media only screen and (max-width: 600px) {
+    .input-field {
+        width: 75%;
+        max-width: none;
+    }
+}
+
+/* Inscription css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 20px;
+}
+
+form div {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type=text],
+input[type=email],
+input[type=password] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Index */
+
+body,
+html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    text-align: center;
+    /* Centre le contenu */
+    padding-top: 50px;
+    /* Ajoute un espace en haut */
+}
+
+.cyber-image {
+    max-width: 100%;
+    /* Assure que l'image ne dépasse pas la largeur de l'écran */
+    height: auto;
+    /* Garde le ratio de l'image */
+}
+
+.inscription-btn {
+    display: inline-block;
+    /* Rend le lien semblable à un bouton */
+    margin-top: 20px;
+    /* Ajoute un espace au-dessus du bouton */
+    padding: 10px 20px;
+    /* Padding autour du texte */
+    background-color: #007bff;
+    /* Couleur de fond */
+    color: white;
+    /* Couleur du texte */
+    text-decoration: none;
+    /* Enlève le soulignement du lien */
+    border-radius: 5px;
+    /* Arrondit les coins */
+}
+
+.inscription-btn:hover {
+    background-color: #0056b3;
+    /* Couleur de fond au survol */
+}
